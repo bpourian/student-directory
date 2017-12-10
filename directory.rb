@@ -16,15 +16,20 @@ def input_students
     students
 end
 
+#prints the header of the list of students
 def print_header
   puts "The students of Villains Academy"
   puts "-------------"
 end
-
+#prints the list of studnets in the array
 def print(students)
-  students.each_with_index {|student, index| puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)"}
+  students.each_with_index do |student, index|
+    puts "#{index+1}. #{student[:name]}\
+    (#{student[:cohort]} cohort)" if student[:name].chars.first == "B"
+  end
 end
 
+#prints a footer with the total student count
 def print_footer(names)
   puts "Overall, we have #{names.count} great students"
 end
