@@ -21,11 +21,11 @@ def print_header
   puts "The students of Villains Academy"
   puts "-------------"
 end
-#prints the list of studnets in the array
+#prints the list of students in the array
 def print(students)
   students.each_with_index do |student, index|
     puts "#{index+1}. #{student[:name]}\
-    (#{student[:cohort]} cohort)" if student[:name].chars.first == "B"
+    (#{student[:cohort]} cohort)" if student[:name].length < 12
   end
 end
 
