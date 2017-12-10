@@ -23,10 +23,20 @@ def print_header
 end
 #prints the list of students in the array
 def print(students)
-  students.each_with_index do |student, index|
-    puts "#{index+1}. #{student[:name]}\
-    (#{student[:cohort]} cohort)" if student[:name].length < 12
+  #students.each_with_index do |student, index|
+  #  puts "#{index+1}. #{student[:name]}\
+  #  (#{student[:cohort]} cohort)" if student[:name].length < 12
+  #end
+  x = 0
+  while x < students.length
+
+    if students[x][:name].length < 12
+    puts "#{x+1}. #{students[x][:name]}\
+    (#{students[x][:cohort]} cohort)"
+    end
+    x += 1
   end
+
 end
 
 #prints a footer with the total student count
