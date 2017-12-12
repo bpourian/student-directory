@@ -1,22 +1,22 @@
 def input_students
   puts 'Please enter the names of the students'
   puts 'To finish just hit the return twice'
-  name = gets.chomp
+  name = gets.strip
 
   unless name.empty?
 
     puts 'Please enter student cohort'
-    cohort = gets.chomp
+    cohort = gets.strip
     cohort = 'November' if cohort.empty?
 
     puts 'Please enter students hobby'
-    hobby = gets.chomp
+    hobby = gets.strip
 
     puts 'Please enter students place of birth'
-    birth_place = gets.chomp
+    birth_place = gets.strip
 
     puts 'Please enter students height'
-    height = gets.chomp
+    height = gets.strip
 end
   # repeat this while name variable is empty
   # creating an empty array
@@ -28,21 +28,21 @@ end
     puts "Now we have #{students.count} students"
     # get another name from the user
     puts 'Enter name'
-    name = gets.chomp
+    name = gets.strip
 
     next if name.empty?
     puts 'Enter cohort'
-    cohort = gets.chomp
+    cohort = gets.strip
     cohort = 'November' if cohort.empty?
 
     puts 'Enter hobby'
-    hobby = gets.chomp
+    hobby = gets.strip
 
     puts 'Enter place of birth'
-    birth_place = gets.chomp
+    birth_place = gets.strip
 
     puts 'Enter height'
-    height = gets.chomp
+    height = gets.strip
 
   end
   # return the array of students
