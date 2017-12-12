@@ -88,7 +88,8 @@ end
 
 # prints a footer with the total student count
 def print_footer(names)
-  puts "Overall, we have #{names.count} great students"
+  puts "Overall, we have #{names.count} great student" if names.count == 1
+  puts "Overall, we have #{names.count} great students" if names.count > 1
 end
 
 students = input_students
