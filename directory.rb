@@ -57,17 +57,19 @@ end
 
 # prints the list of students in the array
 def print(students)
-  x = 0
-  while x < students.length
+  cohort_sorted = {}
 
-    if students[x][:name].length < 12
-      puts "#{x + 1}. #{students[x][:name]} (cohort: #{students[x][:cohort]}
-      hobby: #{students[x][:hobby]}
-      birth place: #{students[x][:birth_place]}
-      height: #{students[x][:height]})"
+  students.map do |student|
+    name = student[:name]
+    cohort = student[:cohort]
+
+    if cohort_sorted[cohort].nil?
+      cohort_sorted[cohort] = [name]
+    else
+      cohort_sorted[cohort].push(name)
     end
-    x += 1
   end
+  puts cohort_sorted
 end
 
 # prints a footer with the total student count
