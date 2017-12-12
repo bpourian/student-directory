@@ -29,8 +29,8 @@ def print(students)
   end
 end
 
-def print_footer names
-  prints "Overall, we have {names.count} great students"
+def print_footer(names)
+  puts "Overall, we have #{names.count} great students"
 end
 
 
