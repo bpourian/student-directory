@@ -22,7 +22,6 @@ def input_students
 end
   # repeat this while name variable is empty
   # creating an empty array
-  #students = []
   until name.empty?
     # add the student hash to the array
     @students << { name: name, cohort: cohort, hobby: hobby,
@@ -114,7 +113,6 @@ def process(selection)
 end
 
 def interactive_menu
-  #students = []
     loop do
       print_menu
       selection = gets.chomp
