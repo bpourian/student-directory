@@ -4,6 +4,11 @@ def input_students
   name = gets.chomp
 
   unless name.empty?
+
+    puts 'Please enter student cohort'
+    cohort = gets.chomp
+    cohort = 'November' if cohort.empty?
+
     puts 'Please enter students hobby'
     hobby = gets.chomp
 
@@ -18,7 +23,7 @@ end
   students = []
   until name.empty?
     # add the student hash to the array
-    students << { name: name, cohort: :november, hobby: hobby,
+    students << { name: name, cohort: cohort, hobby: hobby,
                   birth_place: birth_place, height: height }
     puts "Now we have #{students.count} students"
     # get another name from the user
@@ -26,6 +31,10 @@ end
     name = gets.chomp
 
     next if name.empty?
+    puts 'Enter cohort'
+    cohort = gets.chomp
+    cohort = 'November' if cohort.empty?
+
     puts 'Enter hobby'
     hobby = gets.chomp
 
@@ -53,8 +62,9 @@ def print(students)
 
     if students[x][:name].length < 12
       puts "#{x + 1}. #{students[x][:name]} (cohort: #{students[x][:cohort]}
-      hobby: #{students[x][:hobby]} birth place: #{students[x][:birth_place]}
-      height: #{students[x][:height]} )"
+      hobby: #{students[x][:hobby]}
+      birth place: #{students[x][:birth_place]}
+      height: #{students[x][:height]})"
     end
     x += 1
   end
