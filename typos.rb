@@ -34,7 +34,7 @@ def print_footer(names)
 end
 
 
-students = input-students
+students = input_students
 print_header
-print{students}
-print_footer[students]
+print(students)
+print_footer(students)
