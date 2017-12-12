@@ -1,4 +1,4 @@
-@students = []
+@students = []  #an empty array accessible to all methods
 
 def input_students
   puts 'Please enter the names of the students'
@@ -11,21 +11,12 @@ def input_students
     cohort = gets.strip
     cohort = 'November' if cohort.empty?
 
-    puts 'Please enter students hobby'
-    hobby = gets.strip
-
-    puts 'Please enter students place of birth'
-    birth_place = gets.strip
-
-    puts 'Please enter students height'
-    height = gets.strip
-end
+  end
   # repeat this while name variable is empty
   # creating an empty array
   until name.empty?
     # add the student hash to the array
-    @students << { name: name, cohort: cohort, hobby: hobby,
-                  birth_place: birth_place, height: height }
+    @students << { name: name, cohort: cohort}
     puts "Now we have #{@students.count} students"
     # get another name from the user
     puts 'Enter name'
@@ -35,16 +26,6 @@ end
     puts 'Enter cohort'
     cohort = gets.strip
     cohort = 'November' if cohort.empty?
-
-    puts 'Enter hobby'
-    hobby = gets.strip
-
-    puts 'Enter place of birth'
-    birth_place = gets.strip
-
-    puts 'Enter height'
-    height = gets.strip
-
   end
   # return the array of students
   @students
@@ -56,7 +37,7 @@ def print_header
   puts '-------------'
 end
 
-# prints the list of students in the array
+# prints the list of students in the array sorted into cohorts
 def print_students_list
   cohort_sorted = {}
 
