@@ -57,7 +57,7 @@ def print_header
 end
 
 # prints the list of students in the array
-def print(students)
+def print
   cohort_sorted = {}
 
   @students.map do |student|
@@ -82,9 +82,9 @@ def print(students)
 end
 
 # prints a footer with the total student count
-def print_footer(names)
-  puts "Overall, we have #{names.count} great student" if names.count == 1
-  puts "Overall, we have #{names.count} great students" if names.count > 1
+def print_footer
+  puts "Overall, we have #{@students.count} great student" if @students.count == 1
+  puts "Overall, we have #{@students.count} great students" if @students.count > 1
 end
 
 def print_menu
@@ -95,8 +95,8 @@ end
 
 def show_students
   print_header
-  print(@students)
-  print_footer(@students)
+  print
+  print_footer
 end
 
 def process(selection)
