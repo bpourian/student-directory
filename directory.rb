@@ -69,8 +69,22 @@ def print(students)
       cohort_sorted[cohort].push(name)
     end
   end
-  puts cohort_sorted
+
+  cohort_sorted.each do |cohort|
+
+    cohort.each do |student|
+    puts student
+    end
+
+  end
+
 end
+
+
+
+
+
+
 
 # prints a footer with the total student count
 def print_footer(names)
