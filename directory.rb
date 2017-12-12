@@ -57,7 +57,7 @@ def print_header
 end
 
 # prints the list of students in the array
-def print
+def print_students_list
   cohort_sorted = {}
 
   @students.map do |student|
@@ -95,7 +95,7 @@ end
 
 def show_students
   print_header
-  print
+  print_students_list
   print_footer
 end
 
