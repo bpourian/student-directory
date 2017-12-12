@@ -23,8 +23,9 @@ def print_header
 end
 
 def print(students)
-  student.each do /student/
-    puts '#[student{:name}] (#[student{:cohort}] cohort)'
+  students.each do |student|
+    puts "#{student[:name]} (#{student[:cohort]})"
+    #puts "#{student[:name]} (#{student[:cohort]} cohort)""
   end
 end
 
