@@ -35,30 +35,20 @@ end
 
 # prints the list of students in the array sorted into cohorts
 def print_students_list
-  cohort_sorted = {}
-
-  @students.map do |student|
-    name = student[:name]
-    cohort = student[:cohort]
-
-    if cohort_sorted[cohort].nil?
-      cohort_sorted[cohort] = [name]
-    else
-      cohort_sorted[cohort].push(name)
-    end
-  end
-
-  cohort_sorted.each do |cohort|
-    cohort.each do |student|
-    puts student
+  cohort_list = @students.map {|student| student[:cohort]}.uniq
+  cohort_list.each do |month|
+    @students.each do |student|
+      if student[:cohort] == month
+        puts "#{student[:name]} --- (cohort: #{student[:cohort]})".center(60)
+      end
     end
   end
 end
 
 # prints a footer with the total student count
 def print_footer
-  puts "Overall, we have #{@students.count} great student" if @students.count == 1
-  puts "Overall, we have #{@students.count} great students" if @students.count > 1
+  puts "Overall, we have #{@students.count} great student".center(60) if @students.count == 1
+  puts "Overall, we have #{@students.count} great students".center(60) if @students.count > 1
 end
 
 def print_menu
