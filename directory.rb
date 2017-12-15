@@ -1,40 +1,36 @@
 @students = []  #an empty array accessible to all methods
 
 def input_students
-  puts 'Please enter the names of the students'
-  puts 'To finish just hit the return twice'
-  name = STDIN.gets.chomp
-
-  unless name.empty?
-
-    puts 'Please enter student cohort'
+  while true
+    puts 'Please enter the name of the student'.center(60,"-")
+    puts 'To finish just hit the return twice'.center(60)
+    name = STDIN.gets.chomp
+    return false if name.empty? == true
+    puts 'Please enter student cohort'.center(60)
     cohort = STDIN.gets.chomp
     cohort = 'November' if cohort.empty?
-
+    add_students_to_list(name, cohort)
+    puts "Now we have #{@students.count} students".center(60)
   end
-  # repeat this while name variable is empty
-  # creating an empty array
-  until name.empty?
-    # add the student hash to the array
-    @students << { name: name, cohort: cohort}
-    puts "Now we have #{@students.count} students"
-    # get another name from the user
-    puts 'Enter name'
-    name = gets.strip
+end
 
-    next if name.empty?
-    puts 'Enter cohort'
-    cohort = gets.strip
-    cohort = 'November' if cohort.empty?
+def add_students_to_list(name, cohort)
+  @students << { name: name, cohort: cohort}
+end
+
+def load_students(filename = "students.csv")
+  file = File.open(filename, "r")
+  file.readlines.each do |line|
+    name, cohort = line.chomp.split(',')
+    add_students_to_list(name, cohort)
   end
-  # return the array of students
-  @students
+  file.close
 end
 
 # prints the header of the list of students
 def print_header
-  puts 'The students of Villains Academy'
-  puts '-------------'
+  puts 'The students of Villains Academy'.center(60)
+  puts '-------------'.center(60)
 end
 
 # prints the list of students in the array sorted into cohorts
@@ -53,13 +49,10 @@ def print_students_list
   end
 
   cohort_sorted.each do |cohort|
-
     cohort.each do |student|
     puts student
     end
-
   end
-
 end
 
 # prints a footer with the total student count
@@ -114,15 +107,6 @@ def save_students
     student_data = [student[:name], student[:cohort]]
     csv_line = student_data.join(",")
     file.puts csv_line
-  end
-  file.close
-end
-
-def load_students(filename = "students.csv")
-  file = File.open(filename, "r")
-  file.readlines.each do |line|
-  name, cohort = line.chomp.split(',')
-    @students << {name: name, cohort: cohort}
   end
   file.close
 end
