@@ -67,12 +67,16 @@ end
 def process(selection)
   case selection
   when "1"
+    puts "Input students selected".center(60,":")
     input_students
   when "2"
+    puts "Show students selected".center(60,":")
     show_students
   when "3"
+    puts "List Saved".center(60,":")
     save_students
   when "9"
+    puts "Program exited".center(60,":")
     exit
   else
     puts "I don't know what you meant, try again"
