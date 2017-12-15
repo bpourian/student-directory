@@ -18,7 +18,7 @@ def add_students_to_list(name, cohort)
   @students << { name: name, cohort: cohort}
 end
 
-def load_students(filename = "students.csv")
+def load_students(filename = choose_save_load_file)
   file = File.open(filename, "r")
   file.readlines.each do |line|
     name, cohort = line.chomp.split(',')
@@ -59,6 +59,7 @@ def print_menu
 end
 
 def show_students
+  load_students
   print_header
   print_students_list
   print_footer
@@ -84,16 +85,25 @@ def process(selection)
 end
 
 def interactive_menu
-  load_students
+  #load_students
     loop do
       print_menu
       process(STDIN.gets.chomp)
     end
 end
 
+def choose_save_load_file
+  file = ""
+    while file.empty?
+      puts "Type in file name".center(60,"^")
+      file = gets.chomp
+    end
+    file
+end
+
 def save_students
   # open the file for writing
-  file = File.open("students.csv", "w")
+  file = File.open(choose_save_load_file, "w")
   # iterate over the array of students
   @students.each do |student|
     student_data = [student[:name], student[:cohort]]
