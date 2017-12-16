@@ -71,23 +71,18 @@ end
 
 #selection3
 def load_students(filename = choose_save_load_file)
-  @students.clear  #set @students to clear so not to duplicate an existing csv file
-  File.open(filename, 'r') do |file|
-    file.readlines.each do |line|
-      name, cohort = line.chomp.split(',')
-      add_students_to_list(name, cohort)
-    end
+  @students.clear
+  CSV.foreach(filename) do |row|
+    name, cohort = row[0], row[1]
+    add_students_to_list(name, cohort)
   end
-  puts "Loaded #{@students.count} students from #{filename}".center(60)
 end
 
 #selection4
 def save_students
-  File.open(choose_save_load_file, 'w') do |file|
+  CSV.open("students.csv", 'w') do |csv|
     @students.each do |student|
-      student_data = [student[:name], student[:cohort]]
-      csv_line = student_data.join(",")
-      file.puts csv_line
+      csv << [student[:name], student[:cohort]]
     end
   end
 end
